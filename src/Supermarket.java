@@ -28,7 +28,7 @@ public class Supermarket extends Products {
 			System.out.print("Enter choice: ");
 			choice = sc.nextInt(); 
 			if(choice<1||choice>6) {
-				System.out.println("Invalid choice, please choose 1 to 4");
+				System.out.println("Invalid choice, please choose 1 to 6");
 			}
 		}while(choice<1||choice>6);
 		userInput(choice); 
@@ -45,28 +45,31 @@ public class Supermarket extends Products {
 			 
 			break;
 		case 2:  
-			System.out.println("ADD - Enter ID:"); 
+			System.out.print("ADD - Enter ID:"); 
 			sc.nextLine(); 
 			 pCode = sc.nextLine(); 
 			if(ck.addToBasket(pCode)) {
 				System.out.print("(✓) Added to the basket\n");
 			}else {
-				System.out.printf("(x) %s not available, please try again\n",pCode);
+				System.out.printf("(x) %s not available\n",pCode);
 			}
 			break;
 		case 3:
 			if(ck.basket.size()>0) {
-				System.out.println("DELETE - Enter ID (or * to clear basket):"); 
+				System.out.print("DELETE - Enter ID (or * all):"); 
 				sc.nextLine(); 
 				pCode = sc.nextLine();
-				if(pCode.equalsIgnoreCase("*")) {
+				if(pCode.equals("*")) {
 					ck.basket.removeAll(ck.basket);
 					System.out.println("(✓) Basket cleared");
+					break;
 				}else {
-					if(ck.deleteFromBasket(pCode)) {
+					if(ck.basket.contains(pCode)){
+						ck.deleteFromBasket(pCode); 
 						System.out.print("(✓) Deleted from the basket\n");
+						break;
 					}else {
-						System.out.printf("(x) %s not found in the basket, please try again\n",pCode);
+						System.out.printf("(x) %s not found\n",pCode);
 					}
 				}
 			}else {
