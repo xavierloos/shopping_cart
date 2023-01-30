@@ -7,31 +7,38 @@ public class Supermarket extends Products {
 	
 	public static void main(String[] args) { 
 		System.out.println("WELCOME TO THE SUPERMARKET");
+		printMenu(); 
 		while(true) {  
-			printMenu(); 
+			
+			menuChoice();
 		}   
 	}
 	
-	public static void printMenu(){ 
+	private static void menuChoice() {
 		int choice;
-		do {
-			System.out.println("-----------------------------");
-			System.out.printf("What would you like to do?\n");
-			System.out.println("-----------------------------");
-			System.out.println("1 - See products available");
-			System.out.println("2 - Add product to basket");
-			System.out.println("3 - Delete product from basket");
-			System.out.println("4 - See basket");
-			System.out.println("5 - Checkout");  
-			System.out.println("6 - Exit"); 
-			System.out.println("-----------------------------");
+		do { 
 			System.out.print("Enter choice: ");
 			choice = sc.nextInt(); 
-			if(choice<1||choice>6) {
-				System.out.println("Invalid choice, please choose 1 to 6");
+			if(choice<1||choice>7) {
+				System.out.println("Invalid choice, please choose 1 to 7");
 			}
-		}while(choice<1||choice>6);
+		}while(choice<1||choice>7);
 		userInput(choice); 
+	}
+
+	public static void printMenu(){  
+		System.out.println("-----------------------------");
+		System.out.printf("What would you like to do?\n");
+		System.out.println("-----------------------------");
+		System.out.println("1 - See products available");
+		System.out.println("2 - Add product to basket");
+		System.out.println("3 - Delete product from basket");
+		System.out.println("4 - See basket");
+		System.out.println("5 - Checkout");
+		System.out.println("6 - Main menu"); 
+		System.out.println("7 - Exit"); 
+		System.out.println("-----------------------------");
+		
 	}
 	
 	private static void userInput(int choice) { 
@@ -82,7 +89,10 @@ public class Supermarket extends Products {
 		case 5:
 			ck.checkout(); 
 			break;
-		case 6: 
+		case 6:
+			 printMenu(); 
+			break;
+		case 7: 
 			System.out.println("Thanks for shopping with us");
 			System.exit(0);
 			break;
