@@ -1,4 +1,8 @@
 # Shopping Cart
+## Rules
+1. Buy One Get One Free
+2. Buy 3 or more gets 0.50 off of each on Strawberries
+
 ![image](https://user-images.githubusercontent.com/38819386/215611459-ea1c870a-b5cb-41b0-a152-f93f31cf8154.png)<br>
 ![image](https://user-images.githubusercontent.com/38819386/215615163-82feffc1-a2d3-4ad4-91e6-03efa69ce8ea.png)<br>
 ![image](https://user-images.githubusercontent.com/38819386/215615455-b5d5744e-abae-4ed6-b16c-367e31fc7917.png)<br>
